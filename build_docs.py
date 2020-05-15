@@ -1,5 +1,6 @@
 # STDLIB
 import argparse
+import datetime
 import errno
 import logging
 import os
@@ -73,6 +74,8 @@ def main(args):
                     target='./.docs/README_template_repo_replaced3.rst',
                     old='{repository_dashed}',
                     new=repository_dashed)
+
+    rst_include.rst_str_replace(source='./README.rst', target='', old='{last_update_yyyy}', new=str(datetime.date.today().year+1), inplace=True)
 
     rst_str_replace(source='./.docs/README_template_repo_replaced3.rst',
                     target='./README.rst',
