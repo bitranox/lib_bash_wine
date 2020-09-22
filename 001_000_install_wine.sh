@@ -48,7 +48,7 @@ function install_wine {
     install_libfaudio0_if_not_installed
 
     clr_green "Wine Packages Update"
-    retry sudo apt-get update
+    retry "$(cmd "sudo")" apt-get update
 
     clr_green "Wine Packages Install"
     retry "$(cmd "sudo")" apt-get install --install-recommends winehq-"${wine_release}" -y
